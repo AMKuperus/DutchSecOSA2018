@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/AMKuperus/DSOSA/osa2018/headers"
+	"github.com/AMKuperus/DutchSecOSA2018/headers"
 	"github.com/fatih/color"
 )
 
