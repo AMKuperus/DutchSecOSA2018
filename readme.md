@@ -1,5 +1,7 @@
 ## DutchSec OpenSourceAcademy SummerSchool 2018: Intro to Golang
 
+![DutchSec Logo](https://dutchsec.com/wp-content/uploads/2017/07/dutchsec_logo_color.png "DutchSec Logo")
+
 This is a small program written in Go for teaching purposes. The program loads a list of url's and finds the header Xframe settings for each url. The program wil not only show the outcome of each url in the terminal but also write it to a .txt-document.
 
 ### To run the program:
