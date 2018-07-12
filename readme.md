@@ -24,11 +24,8 @@ go run main.go
 
 The code used for this lesson is part of a bigger package used for CyberBorg:Engine, one of DutchSec's projects. This code contains loads of comments to explain what happens in the code for new programmers to learn how to program on Go.
 
+You can view the code by opening it in your favorite editor like Atom/Spacemacs/Sublime/notepad++/VisualStudio/.
+
 This code should be seen as a good start to build your own first Go-app. Reuse some of this code, or just use it as a example.
 
 Following the -> in the code's comments will give a idea on the route the code takes when run. 
-
-
-
-
-
