@@ -14,7 +14,7 @@ import (
 )
 
 // Header holds headers
-type Header struct {
+type Header struct { // -> Follow the code back to main.go line 61
 	Xframe Xframe
 }
 
@@ -48,7 +48,8 @@ func (h *Header) New(host string) (Header, error) {
 	// get := resp.Header.Get("X-Frame-Options")
 	// Ask the Xframe object to perform function set() which performs it's algorithm
 	// and fills the Xframe struct
-	h.Xframe = h.Xframe.set(resp.Header.Get("X-Frame-Options"))
+	h.Xframe = h.Xframe.set(resp.Header.Get("X-Frame-Options")) // -> Follow the code
+	// to headers/xframe.go line 25
 
 	// Now return the filled header-structure with all it's new changes.
 	return *h, nil
@@ -57,9 +58,9 @@ func (h *Header) New(host string) (Header, error) {
 // ShowXframe shows all gathered data from Xframe.
 func (h Header) ShowXframe() string {
 	// Store IsCorrect() string and boolean.
-	str, boo := h.Xframe.IsCorrect()
-	// Build up a string to return.
+	str, boo := h.Xframe.IsCorrect() // -> Follow the code to headers/xframe.go line 77
+	// Build up a string to return. -> Follow the code to headers/xframe.go line 72
 	ret := fmt.Sprintf("X-Frame isset [ %-5t ] IsCorrect [ %-5t ] %s", h.Xframe.IsSet(), boo, str)
 	// Return the string we just build.
-	return ret
+	return ret //-> Follow the code back to main.go line 79
 }

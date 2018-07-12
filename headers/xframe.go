@@ -33,7 +33,7 @@ func (x *Xframe) set(input string) Xframe {
 		x.isset = true
 		// call sort() which contains the algorithm to filter everything and store
 		// it in the right place.
-		x.sort()
+		x.sort() // -> Follow the code to line 42
 	}
 	// Return the struct
 	return *x
@@ -66,12 +66,12 @@ func (x *Xframe) sort() {
 		if strings.Contains(str, "ALLOW-FROM") {
 			x.allowfrom = true
 		}
-	}
+	} // -> Follow  the code back to line 38
 }
 
 // IsSet returns if Xframe is set.
 func (x Xframe) IsSet() bool {
-	return x.isset
+	return x.isset // -> Following the code back to headers/headers.go line 64
 }
 
 // IsCorrect returns string wich is either empty or filled with wrong Xframe setup
@@ -89,4 +89,4 @@ func (x Xframe) IsCorrect() (string, bool) {
 	}
 	// Xframe not set
 	return "", false
-}
+} // -> Following the code back to headers/headers.go line 62

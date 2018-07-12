@@ -1,3 +1,8 @@
+// This version is only created as part of the OpenSourceAcademy Summerschool by
+// DutchSec. When code is reused DutchSec or author cannot be hold accountable for
+// any mistakes or harm done by inproper reuse of this code.
+// Only for learning purpose.
+// @author AMKuperus @company DutchSec
 package main
 
 import (
@@ -9,13 +14,13 @@ import (
 	"github.com/fatih/color"
 )
 
-// Declare a function to run the program
+// Declare a function to run the program.
 func main() {
 	Run()
 }
 
 // Run reads in a .txt-file and performs a action on every line it reads
-func Run() (string, error) {
+func Run() (string, error) { // This function has a string and error to return.
 	// Open the file with the url's
 	file, err := os.Open("alexa500.txt")
 	// When a error occurs we catch it so we keep control of the program.
@@ -36,9 +41,10 @@ func Run() (string, error) {
 		// Make sure we add 1 to c, otherwise we would end up getting only the first
 		// result over and over in a neverending loop.
 		c++
-		// Store the line we read as text in host
+		// Store the line we read as text in variable host
 		host := scanner.Text()
 		// Call function Check() with string host (which is a url)
+		// -> To follow the code go to line 57 to proceed.
 		result := Check(host)
 		// with fmt we print the result to the terminal-window
 		fmt.Printf("[%-5d] %s\n", c, result)
@@ -49,28 +55,34 @@ func Run() (string, error) {
 }
 
 // Check creates struct and returns info gathered by calls made to the struct.
-func Check(host string) string {
+func Check(host string) string { // This function has a string to return.
 	// Declare xframe as a headers.Xrame-struct
-	var header headers.Header
+	var header headers.Header //-> Follow the code to file headers/headers.go line 17
 	// Run New to set and perform checks.
-	header.New(host)
+	header.New(host) //-> Follow the code to headers/headers.go line 21
 	// Store return string and boolean from Xframe.IsCorrect() in mistakes and iscorrect
 	// Note that normally we use shorter names. The long names used in this code are
 	// for better understanding but are not good practice.
 	// Normally we would call these 2 variables something like:  str, boo
 	mistakes, iscorrect := header.Xframe.IsCorrect()
-
+	// Create a string with Sprintf, with this method we have a lot of control on
+	// strings format.
 	recordoutput := fmt.Sprintf("URL [%-25s] IsSet [%-5t] IsCorrect [%-5t] Mistakes: %s",
 		host, header.Xframe.IsSet(), iscorrect, mistakes)
 
+	// Use Record() to write the output to the file output.txt
+	// -> To follow the code proceed to line 84
 	Record("output.txt", recordoutput)
 
+	// Build a return-string. -> Follow the code to headers/header.go line 58
 	ret := color.CyanString(host) + "\n" + color.YellowString(header.ShowXframe())
+	// Return the ret-string.
+	// -> To follow the code return to line 49
 	return ret
 }
 
 // Record writes input to a file
-func Record(filedirectory, input string) {
+func Record(filedirectory, input string) { // This function has not return
 	// Open a file to write to
 	file, err := os.OpenFile(filedirectory, os.O_APPEND|os.O_WRONLY, 0600)
 	if err != nil {
@@ -87,4 +99,5 @@ func Record(filedirectory, input string) {
 	if _, err = file.WriteString(input + "\n"); err != nil {
 		panic(err)
 	}
+	// -> To follow the code proceed to line 77
 }
