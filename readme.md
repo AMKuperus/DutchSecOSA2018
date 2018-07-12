@@ -29,5 +29,3 @@ You can view the code by opening it in your favorite editor like Atom/Spacemacs/
 This code should be seen as a good start to build your own first Go-app. Reuse some of this code, or just use it as a example.
 
 Following the -> in the code's comments will give a idea on the route the code takes when run. 
-
-![Logo DutchSec]]https://dutchsec.com/wp-content/uploads/2017/07/dutchsec_logo_color.png)
