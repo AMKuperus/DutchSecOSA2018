@@ -35,19 +35,20 @@ func Run() (string, error) { // This function has a string and error to return.
 	// function's.
 	scanner := bufio.NewScanner(file)
 	// Declare a variable integer to function as a counter for coming loop
-	var c int
+	var i int
 	// With c as counter we loop over all lines existing in the file
 	for scanner.Scan() {
-		// Make sure we add 1 to c, otherwise we would end up getting only the first
-		// result over and over in a neverending loop.
-		c++
 		// Store the line we read as text in variable host
 		host := scanner.Text()
 		// Call function Check() with string host (which is a url)
 		// -> To follow the code go to line 57 to proceed.
 		result := Check(host)
 		// with fmt we print the result to the terminal-window
-		fmt.Printf("[%-5d] %s\n", c, result)
+		// Computers count from 0, people from 1, so for showing we do i + 1
+		fmt.Printf("[%-5d] %s\n", (i + 1), result)
+		// Make sure we add 1 to i, otherwise we would end up getting only the first
+		// result over and over in a neverending loop.
+		i++
 	}
 	// When we are at the end of the loop we end up here and print --Finished--
 	// to the terminal window.
